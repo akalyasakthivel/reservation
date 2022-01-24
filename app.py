@@ -2,27 +2,11 @@ from flask import Flask,jsonify,request
 
 app = Flask(__name__)
 
-bus = [{
-    'name': 'akalya',
-    'user': [{'username':'akalya', 'age':15,'gender':'female','startpoint':'cbe','destination':'madurai',
-    'ticketbook':5
-    }]
-}]
+bus = []
 
-train = [{
-    'name': 'akalya',
-    'user': [{'username':'akalya', 'age':15,'gender':'female','startpoint':'cbe','destination':'madurai','coach':'sleeper',
-    'ticketbook':5
-    }]
-}]
+train = []
 
-
-flight=[{
-    'name': 'akalya',
-    'user': [{'username':'akalya', 'age':15,'gender':'female','startpoint':'cbe','destination':'madurai','coach':'sleeper',
-    'ticketbook':5
-    }]
-}]
+flight=[]
 
 @app.route('/')
 
@@ -123,7 +107,7 @@ def get_train(name):
   for seater in train:
     if seater['name'] == name:
           return jsonify(seater)
-  return jsonify ({'message': 'store not found'})
+  return jsonify ({'message': 'user not found'})
 
 @app.route('/train')
 def get_train_users():
